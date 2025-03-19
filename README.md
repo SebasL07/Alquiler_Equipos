@@ -1,1 +1,0 @@
-# Alquiler_Equipos
