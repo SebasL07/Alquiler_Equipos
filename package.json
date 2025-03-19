@@ -2,9 +2,12 @@
   "name": "alquiler_equipos",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node ./dist/app.js",
+    "dev": "nodemon ./src/app.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +23,7 @@
   "homepage": "https://github.com/Freddyedd21/Alquiler_Equipos#readme",
   "dependencies": {
     "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
