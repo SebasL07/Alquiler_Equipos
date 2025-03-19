@@ -9,18 +9,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userController = void 0;
-const user_service_1 = require("../services/user.service");
-class UserController {
-    getUsers(req, res) {
+exports.deviceController = void 0;
+const device_service_1 = require("../services/device.service");
+class DeviceController {
+    getDevices(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const users = yield user_service_1.userService.getAllUsers();
-                if (users.length === 0) {
-                    res.status(404).json({ msg: 'No users found' });
+                const devices = yield device_service_1.deviceService.getAllDevices();
+                if (devices.length === 0) {
+                    res.status(404).json({ msg: 'No devices found' });
                 }
                 else {
-                    res.json(users);
+                    res.json(devices);
                 }
             }
             catch (error) {
@@ -28,16 +28,16 @@ class UserController {
             }
         });
     }
-    getUser(req, res) {
+    getDevice(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
             try {
-                const user = yield user_service_1.userService.getUserById(id);
-                if (user) {
-                    res.json(user);
+                const device = yield device_service_1.deviceService.getDeviceById(Number(id));
+                if (device) {
+                    res.json(device);
                 }
                 else {
-                    res.status(404).json({ msg: `User with id ${id} not found` });
+                    res.status(404).json({ msg: `Device with id ${id} not found` });
                 }
             }
             catch (error) {
@@ -45,35 +45,35 @@ class UserController {
             }
         });
     }
-    postUsers(req, res) {
+    postDevice(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield user_service_1.userService.createUser(req.body);
-                res.status(200).json({ msg: 'User created' });
+                const device = yield device_service_1.deviceService.createDevice(req.body);
+                res.status(201).json({ msg: 'Device created', device });
             }
             catch (error) {
                 res.status(400).json({ msg: error.message });
             }
         });
     }
-    putUserByEmail(req, res) {
+    putDevice(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { email } = req.params;
+            const { id } = req.params;
             try {
-                yield user_service_1.userService.updateUserByEmail(email, req.body);
-                res.status(200).json({ msg: 'User updated' });
+                yield device_service_1.deviceService.updateDevice(Number(id), req.body);
+                res.status(200).json({ msg: 'Device updated' });
             }
             catch (error) {
                 res.status(404).json({ msg: error.message });
             }
         });
     }
-    deleteUsers(req, res) {
+    deleteDevice(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { email } = req.params;
+            const { id } = req.params;
             try {
-                yield user_service_1.userService.deleteUserByEmail(email);
-                res.status(200).json({ msg: 'User deleted' });
+                yield device_service_1.deviceService.deleteDevice(Number(id));
+                res.status(200).json({ msg: 'Device deleted' });
             }
             catch (error) {
                 res.status(404).json({ msg: error.message });
@@ -81,5 +81,5 @@ class UserController {
         });
     }
 }
-exports.userController = new UserController();
-//# sourceMappingURL=user.controllers.js.map
+exports.deviceController = new DeviceController();
+//# sourceMappingURL=device.controller.js.map
