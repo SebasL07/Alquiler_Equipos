@@ -1,4 +1,7 @@
+import { UserInput, UserLogInResponse } from '../interfaces';
 import User from '../models/user.model';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 class UserService {
     public async getAllUsers() {
@@ -13,10 +16,15 @@ class UserService {
         return await User.findOne({ where: { email } });
     }
 
-    public async createUser(userData: any) {
-        const existEmail = await User.findOne({ where: { email: userData.email } });
+    public async createUser(userInput : UserInput) {
+        const existEmail = await User.findOne({ where: { email: userInput.email } });
         if (existEmail) throw new Error('Email already exists');
-        return await User.create(userData);
+
+        if (userInput.password){
+            userInput.password = await bcrypt.hash(userInput.password, 10);
+        }
+        
+        return await User.create(userInput as any);
     }
 
     public async updateUserByEmail(email: string, userData: any) {
@@ -31,6 +39,46 @@ class UserService {
         if (!user) throw new Error(`User with email ${email} not found`);
         await user.destroy();
     }
+
+    public async logIn(email: string, password: string) : Promise< UserLogInResponse | null> {
+
+        try {
+            const user = await User.findOne({ where: { email } });
+            if (!user) throw new Error(`User with email ${email} not found`);
+            const isPasswordValid = await bcrypt.compare(password, user.get('password') as string);
+            if (!isPasswordValid) throw new Error('Invalid password');
+            return {
+                user: {
+                    name: user.get('name') as string,
+                    email: user.get('email') as string,
+                    cellphone: user.get('cellphone') as number,
+                    adress: user.get('adress') as string,
+                    token: 'fakeToken',
+                    role: user.get('role') as string
+                }
+            }
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    public async generateToken(email: string) : Promise<string> {
+        const user = await User.findOne({ where: { email } });
+        if (!user) throw new Error(`User with email ${email} not found`);
+        try {
+            return jwt.sign({
+                user : {
+                    id : user.get('id'),
+                    email : user.get('email'),
+                    name : user.get('name'),
+                    role : user.get('role')
+                }
+            }, process.env.JWT_SECRET || 'secret', { expiresIn: '1h' });
+        } catch (error) {
+            throw error;
+        }
+    }
+
 }
 
 export const userService = new UserService();
