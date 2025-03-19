@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { userService } from '../services/user.service'; 
+import { AuthException } from '../exceptions';
 
 class UserController {
     public async getUsers(req: Request, res: Response) {
@@ -55,6 +56,21 @@ class UserController {
             res.status(200).json({ msg: 'User deleted' });
         } catch (error: any) {
             res.status(404).json({ msg: error.message });
+        }
+    }
+
+    public async logIn(req: Request, res: Response) {
+        const { email, password } = req.body;
+        try {
+            const user = await userService.logIn(email, password);
+            if (user) {
+                res.status(200).json(user);
+            } else {
+                res.status(404).json({ msg: 'Invalid credentials' });
+            }
+        } catch (error: any) {
+            if(error instanceof AuthException) res.status(401).json({ msg: "Not Authorized" });
+            res.status(500).json({ msg: 'Server error' });
         }
     }
 }

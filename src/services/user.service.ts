@@ -1,4 +1,5 @@
 import { UserInput, UserLogInResponse } from '../interfaces';
+import { AuthException } from '../exceptions';
 import User from '../models/user.model';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -46,14 +47,14 @@ class UserService {
             const user = await User.findOne({ where: { email } });
             if (!user) throw new Error(`User with email ${email} not found`);
             const isPasswordValid = await bcrypt.compare(password, user.get('password') as string);
-            if (!isPasswordValid) throw new Error('Invalid password');
+            if (!isPasswordValid) throw new AuthException('Invalid password');
             return {
                 user: {
                     name: user.get('name') as string,
                     email: user.get('email') as string,
                     cellphone: user.get('cellphone') as number,
                     adress: user.get('adress') as string,
-                    token: 'fakeToken',
+                    token: await this.generateToken(email),
                     role: user.get('role') as string
                 }
             }
