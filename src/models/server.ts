@@ -1,5 +1,5 @@
 import express, {Application} from "express";
-import {userRouter, deviceRouter, requestRouter} from "../routes";
+import {userRouter, deviceRouter, requestRouter, requestDeviceRouter} from "../routes";
 import cors from "cors";
 import db from "../database/connect";
 
@@ -10,7 +10,8 @@ export class Server{
     private apiRoutes = {
         users: '/api/users',
         devices: '/api/devices',
-        requests: '/api/requests'
+        requests: '/api/requests',
+        requestDevices: '/api/request_devices'
     };
     
     constructor(){
@@ -46,6 +47,8 @@ export class Server{
         this.app.use(this.apiRoutes.users, userRouter);
         this.app.use(this.apiRoutes.devices, deviceRouter);
         this.app.use(this.apiRoutes.requests, requestRouter);
+        this.app.use(this.apiRoutes.requestDevices, requestDeviceRouter);
+       
 
     }
 

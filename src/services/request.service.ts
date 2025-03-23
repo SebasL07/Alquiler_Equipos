@@ -1,4 +1,6 @@
+import { error } from 'console';
 import Request from '../models/request.model';
+import User from '../models/user.model';
 
 class RequestService {
     public async getAllRequests() {
@@ -10,6 +12,8 @@ class RequestService {
     }
 
     public async createRequest(requestData: any) {
+        const user = await User.findOne({where: {user_Document: requestData.user_Document}});
+        if(!user) throw new Error(`User document ${requestData.deviceName} not found`);
         return await Request.create(requestData);
     }
 

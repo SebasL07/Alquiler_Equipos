@@ -1,25 +1,28 @@
-import { DataTypes } from "sequelize";
-import db from "../database/connect";
+import { Model, DataTypes } from "sequelize";
+import sequelize from "../database/connect";
 
-const Device = db.define('device', {
-    name: {
-        type: DataTypes.STRING,
+class Device extends Model {
+    public id!: number;
+    public name!: string;
+    public stock!: number; // Add the stock property
+}
+
+Device.init(
+    {
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        stock: {
+            type: DataTypes.INTEGER, // Define stock as an integer
+            allowNull: false,
+            defaultValue: 0,
+        },
     },
-    type: {
-        type: DataTypes.STRING,
-    },
-    state: {
-        type: DataTypes.STRING,
-    },
-    description: {
-        type: DataTypes.STRING
-    },
-    stock: {
-        type: DataTypes.INTEGER,
-    },
-    image: {
-        type: DataTypes.STRING
+    {
+        sequelize,
+        modelName: "Device",
     }
-});
+);
 
 export default Device;
