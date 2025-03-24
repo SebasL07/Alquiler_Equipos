@@ -13,6 +13,10 @@ export interface UserLogInResponse{
         cellphone: number;
         adress: string;
         token: string;
-        role: string;
     }
+}
+
+export interface UserLogin{
+    email: string;
+    password: string;
 }

@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { userService } from '../services/user.service'; 
 import { AuthException } from '../exceptions';
+import { UserLogin } from '../interfaces';
 
 class UserController {
     public async getUsers(req: Request, res: Response) {
@@ -60,16 +61,15 @@ class UserController {
     }
 
     public async logIn(req: Request, res: Response) {
-        const { email, password } = req.body;
         try {
-            const user = await userService.logIn(email, password);
-            if (user) {
-                res.status(200).json(user);
-            } else {
-                res.status(404).json({ msg: 'Invalid credentials' });
-            }
+            const user = await userService.logIn(req.body as UserLogin);
+            res.status(200).json(user);
         } catch (error: any) {
-            if(error instanceof AuthException) res.status(401).json({ msg: "Not Authorized" });
+            if(error instanceof AuthException) {
+                console.log(error);
+                res.status(401).json({ msg: "Not Authorized" });
+                return;
+            };
             res.status(500).json({ msg: 'Server error' });
         }
     }

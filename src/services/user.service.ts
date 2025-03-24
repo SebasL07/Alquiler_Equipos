@@ -1,4 +1,4 @@
-import { UserInput, UserLogInResponse } from '../interfaces';
+import { UserInput, UserLogin, UserLogInResponse } from '../interfaces';
 import { AuthException } from '../exceptions';
 import User from '../models/user.model';
 import bcrypt from 'bcrypt';
@@ -43,13 +43,18 @@ class UserService {
         await user.destroy();
     }
 
-    public async logIn(email: string, password: string) : Promise< UserLogInResponse | null> {
-
+    public async logIn(userLogin : UserLogin) : Promise< UserLogInResponse | null> {
+        const { email, password } = userLogin;
         try {
             const user = await User.findOne({ where: { email } });
-            if (!user) throw new Error(`User with email ${email} not found`);
+            console.log(user);
+            if (user === null) {
+                throw new AuthException(`User with email ${email} not found`);
+            }
             const isPasswordValid = await bcrypt.compare(password, user.get('password') as string);
-            if (!isPasswordValid) throw new AuthException('Invalid password');
+            if (!isPasswordValid){
+                throw new AuthException('Invalid password')
+            }
             return {
                 user: {
                     name: user.get('name') as string,
@@ -57,7 +62,7 @@ class UserService {
                     cellphone: user.get('cellphone') as number,
                     adress: user.get('adress') as string,
                     token: await this.generateToken(email),
-                    role: user.get('role') as string
+                    
                 }
             }
         } catch (error) {
