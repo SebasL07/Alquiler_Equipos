@@ -59,9 +59,9 @@ class UserService {
                 user: {
                     name: user.get('name') as string,
                     email: user.get('email') as string,
-                    cellphone: user.get('cellphone') as number,
                     adress: user.get('adress') as string,
                     token: await this.generateToken(email),
+                    role: user.get('role') as string,
                     
                 }
             }

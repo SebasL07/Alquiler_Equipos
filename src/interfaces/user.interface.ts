@@ -10,9 +10,9 @@ export interface UserLogInResponse{
     user: {
         name: string;
         email: string;
-        cellphone: number;
         adress: string;
         token: string;
+        role: string;
     }
 }
 

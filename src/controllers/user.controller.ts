@@ -67,7 +67,7 @@ class UserController {
         } catch (error: any) {
             if(error instanceof AuthException) {
                 console.log(error);
-                res.status(401).json({ msg: "Not Authorized" });
+                res.status(401).json({ msg: error.message });
                 return;
             };
             res.status(500).json({ msg: 'Server error' });
