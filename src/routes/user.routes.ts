@@ -5,9 +5,8 @@ import { userSchema } from "../schemas";
 
 export const userRouter = Router();   
 
-userRouter.get('/users', userController.getUsers);
+userRouter.get('/', userController.getUsers);
 userRouter.get('/:id', userController.getUser);
-userRouter.post('/users', userController.postUsers);
 userRouter.post('/', validateSchema(userSchema), userController.postUsers);
 userRouter.put('/:email', userController.putUserByEmail);
 userRouter.delete('/:email', userController.deleteUsers);

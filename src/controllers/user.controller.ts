@@ -12,7 +12,7 @@ class UserController {
                 res.json(users);
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 

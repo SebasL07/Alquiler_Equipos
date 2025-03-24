@@ -26,10 +26,6 @@ const User = db.define('user', {
         type: DataTypes.STRING
     },
 
-    role : {
-        type: DataTypes.STRING
-    }
-
 
 });
 
