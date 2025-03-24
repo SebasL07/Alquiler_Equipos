@@ -6,6 +6,10 @@ const User = db.define('user', {
         type: DataTypes.STRING
     },
 
+    user_Document:{
+        type: DataTypes.STRING
+    },
+
     email: {
         type: DataTypes.STRING
     },
