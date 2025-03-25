@@ -57,6 +57,15 @@ class DeviceController {
             res.status(404).json({ msg: error.message });
         }
     }
+    public async deleteAllDevices(req: Request, res: Response) {
+        try {
+            await deviceService.deleteAllDevices();
+            res.status(200).json({ msg: 'All devices deleted' });
+        } catch (error: any) {
+            res.status(500).json({ msg: 'Server error' });
+        }
+    }
+    
 }
 
 export const deviceController = new DeviceController();

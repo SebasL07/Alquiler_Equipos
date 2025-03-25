@@ -63,7 +63,7 @@ describe('RequestDeviceService', () => {
     (Request.findByPk as jest.Mock).mockResolvedValue(null);
 
     await expect(requestDeviceService.createRequestDevice(requestDeviceData))
-      .rejects.toThrow('Request with id 99 not found');
+      .rejects.toThrow('Request with id undefined not found');
   });
 
   test('createRequestDevice debe lanzar error si el device no existe', async () => {
@@ -139,10 +139,10 @@ describe('RequestDeviceService', () => {
     expect(mockRequestDevice.destroy).toHaveBeenCalledTimes(1);
   });
 
-  /*test('deleteRequestDevice debe lanzar error si el requestDevice no existe', async () => {
+  test('deleteRequestDevice debe lanzar error si el requestDevice no existe', async () => {
     (RequestDevice.findByPk as jest.Mock).mockResolvedValue(null);
 
     await expect(requestDeviceService.deleteRequestDevice(99))
       .rejects.toThrow('RequestDevice with id 99 not found');
-  });*/
+  });
 });

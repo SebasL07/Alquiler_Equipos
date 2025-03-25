@@ -5,4 +5,8 @@ dotenv.config();
 
 const server = new Server();
 
+const app = server.getApp();
+
 server.listen();
+
+export {app};

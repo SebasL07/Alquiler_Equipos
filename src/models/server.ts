@@ -61,5 +61,9 @@ export class Server{
         }
         );
     }
+
+    getApp(){
+        return this.app;
+    }
     
 }

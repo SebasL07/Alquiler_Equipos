@@ -10,5 +10,6 @@ deviceRouter.get('/:id', deviceController.getDevice);
 deviceRouter.post('/', validateSchema(deviceSchema), deviceController.postDevice);
 deviceRouter.put('/:id', deviceController.putDevice);
 deviceRouter.delete('/:id', deviceController.deleteDevice);
+deviceRouter.delete('/', deviceController.deleteAllDevices);
 
 

@@ -25,6 +25,11 @@ class DeviceService {
         if (!device) throw new Error(`Device with id ${id} not found`);
         await device.destroy();
     }
+
+    
+    public async deleteAllDevices() {
+        await Device.destroy({ where: {}, truncate: true });
+    }
 }
 
 export const deviceService = new DeviceService();
