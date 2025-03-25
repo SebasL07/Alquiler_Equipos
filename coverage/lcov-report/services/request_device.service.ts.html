@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">13.79% </span>
+                <span class="strong">96.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/29</span>
+                <span class='fraction'>28/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">85.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/7</span>
+                <span class='fraction'>6/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">18.18% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -102,16 +102,52 @@
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
+<<<<<<< HEAD
 <a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+=======
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -142,41 +178,44 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import RequestDevice from "../models/request_device.model";
+=======
+<span class="cline-any cline-yes">5x</span></td><td class="text"><pre class="prettyprint lang-js">import RequestDevice from "../models/request_device.model";
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 import Request from "../models/request.model";
 import Device from "../models/device.model";
 &nbsp;
 class RequestDeviceService {
-    public async <span class="fstat-no" title="function not covered" >getAllRequestDevices(</span>) {
-<span class="cstat-no" title="statement not covered" >        return await RequestDevice.findAll();</span>
+    public async getAllRequestDevices() {
+        return await RequestDevice.findAll();
     }
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >getRequestDeviceById(</span>id: number) {
-<span class="cstat-no" title="statement not covered" >        return await RequestDevice.findByPk(id);</span>
+    public async getRequestDeviceById(id: number) {
+        return await RequestDevice.findByPk(id);
     }
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >createRequestDevice(</span>requestDeviceData: any) {
-        const request = <span class="cstat-no" title="statement not covered" >await Request.findByPk(requestDeviceData.request_id);</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!request) <span class="cstat-no" title="statement not covered" >throw new Error(`Request with id ${requestDeviceData.requestId} not found`);</span></span>
-        const device = <span class="cstat-no" title="statement not covered" >await Device.findOne({ where: { name: requestDeviceData.deviceName } });</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!device) <span class="cstat-no" title="statement not covered" >throw new Error(`Device with name ${requestDeviceData.deviceName} not found`);</span></span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (device.stock &lt; requestDeviceData.quantity) <span class="cstat-no" title="statement not covered" >throw new Error(`Not enough stock for ${requestDeviceData.deviceName}`);</span></span>
-<span class="cstat-no" title="statement not covered" >        return await RequestDevice.create(requestDeviceData);</span>
+    public async createRequestDevice(requestDeviceData: any) {
+        const request = await Request.findByPk(requestDeviceData.request_id);
+        if (!request) throw new Error(`Request with id ${requestDeviceData.requestId} not found`);
+        const device = await Device.findOne({ where: { name: requestDeviceData.deviceName } });
+        if (!device) throw new Error(`Device with name ${requestDeviceData.deviceName} not found`);
+        if (device.stock &lt; requestDeviceData.quantity) throw new Error(`Not enough stock for ${requestDeviceData.deviceName}`);
+        return await RequestDevice.create(requestDeviceData);
     }
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >updateRequestDevice(</span>id: number, requestDeviceData: any) {
-        const requestDevice = <span class="cstat-no" title="statement not covered" >await RequestDevice.findByPk(id);</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!requestDevice) <span class="cstat-no" title="statement not covered" >throw new Error(`RequestDevice with id ${id} not found`);</span></span>
-        const device = <span class="cstat-no" title="statement not covered" >await Device.findOne({ where: { name: requestDeviceData.deviceName } });</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!device) <span class="cstat-no" title="statement not covered" >throw new Error(`Device with name ${requestDeviceData.deviceName} not found`);</span></span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (device.stock &lt; requestDeviceData.quantity) <span class="cstat-no" title="statement not covered" >throw new Error(`Not enough stock for ${requestDeviceData.deviceName}`);</span></span>
-<span class="cstat-no" title="statement not covered" >        await requestDevice.update(requestDeviceData);</span>
-<span class="cstat-no" title="statement not covered" >        return requestDevice;</span>
+    public async updateRequestDevice(id: number, requestDeviceData: any) {
+        const requestDevice = await RequestDevice.findByPk(id);
+        if (!requestDevice) throw new Error(`RequestDevice with id ${id} not found`);
+        const device = await Device.findOne({ where: { name: requestDeviceData.deviceName } });
+        if (!device) throw new Error(`Device with name ${requestDeviceData.deviceName} not found`);
+        if (device.stock &lt; requestDeviceData.quantity) throw new Error(`Not enough stock for ${requestDeviceData.deviceName}`);
+        await requestDevice.update(requestDeviceData);
+        return requestDevice;
     }
 &nbsp;
-    public async <span class="fstat-no" title="function not covered" >deleteRequestDevice(</span>id: number) {
-        const requestDevice = <span class="cstat-no" title="statement not covered" >await RequestDevice.findByPk(id);</span>
-<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!requestDevice) <span class="cstat-no" title="statement not covered" >throw new Error(`RequestDevice with id ${id} not found`);</span></span>
-<span class="cstat-no" title="statement not covered" >        await requestDevice.destroy();</span>
+    public async deleteRequestDevice(id: number) {
+        const requestDevice = await RequestDevice.findByPk(id);
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!requestDevice) <span class="cstat-no" title="statement not covered" >throw new Error(`RequestDevice with id ${id} not found`);</span>
+        await requestDevice.destroy();
     }
 }
 &nbsp;
@@ -187,7 +226,11 @@ export const requestDeviceService = new RequestDeviceService();</pre></td></tr><
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2025-03-25T04:06:05.438Z
+=======
+                at 2025-03-25T03:58:57.395Z
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
             </div>
         <script src="../prettify.js"></script>
         <script>

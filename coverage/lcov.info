@@ -2,9 +2,15 @@ TN:
 SF:src\database\connect.ts
 FNF:0
 FNH:0
+<<<<<<< HEAD
 DA:1,3
 DA:3,3
 DA:8,3
+=======
+DA:1,5
+DA:3,5
+DA:8,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:3
 LH:3
 BRF:0
@@ -14,11 +20,19 @@ TN:
 SF:src\exceptions\auth.exception.ts
 FN:1,(anonymous_0)
 FNF:1
+<<<<<<< HEAD
 FNH:1
 FNDA:1,(anonymous_0)
 DA:1,3
 DA:2,1
 DA:3,1
+=======
+FNH:0
+FNDA:0,(anonymous_0)
+DA:1,5
+DA:2,0
+DA:3,0
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:3
 LH:3
 BRF:0
@@ -28,7 +42,11 @@ TN:
 SF:src\exceptions\index.ts
 FNF:0
 FNH:0
+<<<<<<< HEAD
 DA:1,3
+=======
+DA:1,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:1
 LH:1
 BRF:0
@@ -51,12 +69,21 @@ TN:
 SF:src\models\contract_device.model.ts
 FNF:0
 FNH:0
+<<<<<<< HEAD
 DA:1,3
 DA:2,3
 DA:3,3
 DA:4,3
 DA:6,3
 DA:39,3
+=======
+DA:1,4
+DA:2,4
+DA:3,4
+DA:4,4
+DA:6,4
+DA:39,4
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:6
 LH:6
 BRF:0
@@ -79,10 +106,17 @@ TN:
 SF:src\models\request.model.ts
 FNF:0
 FNH:0
+<<<<<<< HEAD
 DA:1,2
 DA:2,2
 DA:4,2
 DA:24,2
+=======
+DA:1,3
+DA:2,3
+DA:4,3
+DA:24,3
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:4
 LH:4
 BRF:0
@@ -92,12 +126,21 @@ TN:
 SF:src\models\request_device.model.ts
 FNF:0
 FNH:0
+<<<<<<< HEAD
 DA:1,3
 DA:2,3
 DA:3,3
 DA:4,3
 DA:6,3
 DA:32,3
+=======
+DA:1,4
+DA:2,4
+DA:3,4
+DA:4,4
+DA:6,4
+DA:32,4
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:6
 LH:6
 BRF:0
@@ -107,10 +150,10 @@ TN:
 SF:src\models\user.model.ts
 FNF:0
 FNH:0
-DA:1,1
-DA:2,1
-DA:4,1
-DA:35,1
+DA:1,3
+DA:2,3
+DA:4,3
+DA:35,3
 LF:4
 LH:4
 BRF:0
@@ -124,6 +167,7 @@ FN:12,(anonymous_12)
 FN:25,(anonymous_14)
 FN:32,(anonymous_16)
 FNF:5
+<<<<<<< HEAD
 FNH:0
 FNDA:0,(anonymous_8)
 FNDA:0,(anonymous_10)
@@ -148,17 +192,43 @@ DA:33,0
 DA:34,0
 DA:35,0
 DA:38,3
+=======
+FNH:5
+FNDA:1,(anonymous_8)
+FNDA:1,(anonymous_10)
+FNDA:2,(anonymous_12)
+FNDA:2,(anonymous_14)
+FNDA:2,(anonymous_16)
+DA:1,5
+DA:2,5
+DA:6,1
+DA:10,1
+DA:13,2
+DA:15,2
+DA:16,1
+DA:19,1
+DA:20,1
+DA:22,1
+DA:26,2
+DA:27,2
+DA:28,1
+DA:29,1
+DA:33,2
+DA:34,2
+DA:35,1
+DA:38,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:18
-LH:3
-BRDA:15,0,0,0
+LH:18
+BRDA:15,0,0,1
 BRDA:19,1,0,0
-BRDA:19,1,1,0
+BRDA:19,1,1,1
 BRDA:20,2,0,0
-BRDA:20,2,1,0
-BRDA:27,3,0,0
-BRDA:34,4,0,0
+BRDA:20,2,1,1
+BRDA:27,3,0,1
+BRDA:34,4,0,1
 BRF:7
-BRH:0
+BRH:5
 end_of_record
 TN:
 SF:src\services\contract_device.service.ts
@@ -168,6 +238,7 @@ FN:14,(anonymous_12)
 FN:31,(anonymous_14)
 FN:38,(anonymous_16)
 FNF:5
+<<<<<<< HEAD
 FNH:0
 FNDA:0,(anonymous_8)
 FNDA:0,(anonymous_10)
@@ -194,15 +265,43 @@ DA:39,0
 DA:40,0
 DA:42,0
 DA:46,3
+=======
+FNH:5
+FNDA:1,(anonymous_8)
+FNDA:1,(anonymous_10)
+FNDA:4,(anonymous_12)
+FNDA:2,(anonymous_14)
+FNDA:2,(anonymous_16)
+DA:1,5
+DA:2,5
+DA:3,5
+DA:7,1
+DA:11,1
+DA:15,4
+DA:16,4
+DA:18,3
+DA:19,3
+DA:21,2
+DA:22,1
+DA:26,1
+DA:28,1
+DA:32,2
+DA:33,2
+DA:35,1
+DA:39,2
+DA:40,2
+DA:42,1
+DA:46,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:20
-LH:4
-BRDA:16,0,0,0
-BRDA:19,1,0,0
-BRDA:21,2,0,0
-BRDA:33,3,0,0
-BRDA:40,4,0,0
+LH:20
+BRDA:16,0,0,1
+BRDA:19,1,0,1
+BRDA:21,2,0,1
+BRDA:33,3,0,1
+BRDA:40,4,0,1
 BRF:5
-BRH:0
+BRH:5
 end_of_record
 TN:
 SF:src\services\device.service.ts
@@ -218,7 +317,11 @@ FNDA:1,(anonymous_10)
 FNDA:1,(anonymous_12)
 FNDA:2,(anonymous_14)
 FNDA:2,(anonymous_16)
+<<<<<<< HEAD
 DA:1,3
+=======
+DA:1,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 DA:5,1
 DA:9,1
 DA:13,1
@@ -229,7 +332,11 @@ DA:20,1
 DA:24,2
 DA:25,2
 DA:26,1
+<<<<<<< HEAD
 DA:30,3
+=======
+DA:30,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:12
 LH:12
 BRDA:18,0,0,1
@@ -241,12 +348,21 @@ TN:
 SF:src\services\index.ts
 FNF:0
 FNH:0
+<<<<<<< HEAD
 DA:1,3
 DA:2,3
 DA:3,3
 DA:4,3
 DA:5,3
 DA:6,3
+=======
+DA:1,5
+DA:2,5
+DA:3,5
+DA:4,5
+DA:5,5
+DA:6,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:6
 LH:6
 BRF:0
@@ -266,8 +382,13 @@ FNDA:1,(anonymous_10)
 FNDA:2,(anonymous_12)
 FNDA:2,(anonymous_14)
 FNDA:2,(anonymous_16)
+<<<<<<< HEAD
 DA:1,3
 DA:2,3
+=======
+DA:1,5
+DA:2,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 DA:6,1
 DA:10,1
 DA:14,2
@@ -280,7 +401,11 @@ DA:23,1
 DA:27,2
 DA:28,2
 DA:29,1
+<<<<<<< HEAD
 DA:32,3
+=======
+DA:32,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:15
 LH:15
 BRDA:15,0,0,1
@@ -297,6 +422,7 @@ FN:14,(anonymous_12)
 FN:23,(anonymous_14)
 FN:33,(anonymous_16)
 FNF:5
+<<<<<<< HEAD
 FNH:0
 FNDA:0,(anonymous_8)
 FNDA:0,(anonymous_10)
@@ -325,17 +451,47 @@ DA:34,0
 DA:35,0
 DA:36,0
 DA:40,3
+=======
+FNH:5
+FNDA:1,(anonymous_8)
+FNDA:1,(anonymous_10)
+FNDA:4,(anonymous_12)
+FNDA:4,(anonymous_14)
+FNDA:1,(anonymous_16)
+DA:1,5
+DA:2,5
+DA:3,5
+DA:7,1
+DA:11,1
+DA:15,4
+DA:16,4
+DA:17,3
+DA:18,3
+DA:19,2
+DA:20,1
+DA:24,4
+DA:25,4
+DA:26,3
+DA:27,3
+DA:28,2
+DA:29,1
+DA:30,1
+DA:34,1
+DA:35,1
+DA:36,1
+DA:40,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:22
-LH:4
-BRDA:16,0,0,0
-BRDA:18,1,0,0
-BRDA:19,2,0,0
-BRDA:25,3,0,0
-BRDA:27,4,0,0
-BRDA:28,5,0,0
+LH:22
+BRDA:16,0,0,1
+BRDA:18,1,0,1
+BRDA:19,2,0,1
+BRDA:25,3,0,1
+BRDA:27,4,0,1
+BRDA:28,5,0,1
 BRDA:35,6,0,0
 BRF:7
-BRH:0
+BRH:6
 end_of_record
 TN:
 SF:src\services\user.service.ts
@@ -357,6 +513,7 @@ FNDA:2,(anonymous_16)
 FNDA:2,(anonymous_18)
 FNDA:1,(anonymous_20)
 FNDA:0,(anonymous_22)
+<<<<<<< HEAD
 DA:2,3
 DA:3,3
 DA:4,3
@@ -383,6 +540,34 @@ DA:48,1
 DA:49,1
 DA:50,1
 DA:51,1
+=======
+DA:2,5
+DA:3,5
+DA:4,5
+DA:5,5
+DA:9,0
+DA:10,0
+DA:11,0
+DA:15,0
+DA:19,0
+DA:23,0
+DA:24,0
+DA:26,0
+DA:27,0
+DA:30,0
+DA:34,0
+DA:35,0
+DA:36,0
+DA:37,0
+DA:41,0
+DA:42,0
+DA:43,0
+DA:47,0
+DA:48,0
+DA:49,0
+DA:50,0
+DA:51,0
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 DA:52,0
 DA:54,1
 DA:55,1
@@ -394,7 +579,11 @@ DA:75,0
 DA:76,0
 DA:77,0
 DA:86,0
+<<<<<<< HEAD
 DA:92,3
+=======
+DA:92,5
+>>>>>>> 64de425e695a3ad6a8938556972a19d1d4e8a082
 LF:38
 LH:31
 BRDA:24,0,0,1
