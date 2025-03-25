@@ -40,7 +40,7 @@ export class Server{
         // lectura de body
         this.app.use(cors());
         // carpeta publica
-        this.app.use(express.static('public'));
+        // this.app.use(express.static('public'));
     
     }
 

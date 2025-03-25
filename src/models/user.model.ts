@@ -24,8 +24,11 @@ const User = db.define('user', {
 
     adress: {
         type: DataTypes.STRING
-    }
+    },
 
+    role : {
+        type: DataTypes.STRING
+    }
 
 });
 

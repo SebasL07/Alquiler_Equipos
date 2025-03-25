@@ -10,6 +10,7 @@ userRouter.get('/:id', userController.getUser);
 userRouter.post('/', validateSchema(userSchema), userController.postUsers);
 userRouter.put('/:email', userController.putUserByEmail);
 userRouter.delete('/:email', userController.deleteUsers);
+userRouter.post('/login', userController.logIn);
 
 
 
