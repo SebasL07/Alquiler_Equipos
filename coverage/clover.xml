@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1742862547313" clover="3.2.0">
-  <project timestamp="1742862547314" name="All files">
-    <metrics statements="166" coveredstatements="82" conditionals="33" coveredconditionals="5" methods="34" coveredmethods="10" elements="233" coveredelements="97" complexity="0" loc="166" ncloc="166" packages="4" files="16" classes="16"/>
+<coverage generated="1742875565457" clover="3.2.0">
+  <project timestamp="1742875565457" name="All files">
+    <metrics statements="166" coveredstatements="110" conditionals="33" coveredconditionals="10" methods="34" coveredmethods="18" elements="233" coveredelements="138" complexity="0" loc="166" ncloc="166" packages="4" files="16" classes="16"/>
     <package name="database">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="connect.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\database\connect.ts">
+      <file name="connect.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\database\connect.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
       </file>
     </package>
     <package name="exceptions">
-      <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="auth.exception.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\exceptions\auth.exception.ts">
-        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="auth.exception.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\exceptions\auth.exception.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
       </file>
-      <file name="index.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\exceptions\index.ts">
+      <file name="index.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\exceptions\index.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
       </file>
     </package>
     <package name="models">
       <metrics statements="28" coveredstatements="28" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="contract.model.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\models\contract.model.ts">
+      <file name="contract.model.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\models\contract.model.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
       </file>
-      <file name="contract_device.model.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\models\contract_device.model.ts">
+      <file name="contract_device.model.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\models\contract_device.model.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="39" count="3" type="stmt"/>
+      </file>
+      <file name="device.model.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\models\device.model.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+      </file>
+      <file name="request.model.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\models\request.model.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="39" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
       </file>
-      <file name="device.model.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\models\device.model.ts">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
-      </file>
-      <file name="request.model.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\models\request.model.ts">
-        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-      </file>
-      <file name="request_device.model.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\models\request_device.model.ts">
+      <file name="request_device.model.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\models\request_device.model.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
       </file>
-      <file name="user.model.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\models\user.model.ts">
+      <file name="user.model.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\models\user.model.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -74,11 +74,11 @@
       </file>
     </package>
     <package name="services">
-      <metrics statements="131" coveredstatements="49" conditionals="33" coveredconditionals="5" methods="33" coveredmethods="10"/>
-      <file name="contract.service.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\contract.service.ts">
+      <metrics statements="131" coveredstatements="75" conditionals="33" coveredconditionals="10" methods="33" coveredmethods="17"/>
+      <file name="contract.service.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\contract.service.ts">
         <metrics statements="18" coveredstatements="3" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
@@ -94,13 +94,13 @@
         <line num="33" count="0" type="stmt"/>
         <line num="34" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="35" count="0" type="stmt"/>
-        <line num="38" count="2" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
       </file>
-      <file name="contract_device.service.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\contract_device.service.ts">
+      <file name="contract_device.service.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\contract_device.service.ts">
         <metrics statements="20" coveredstatements="4" conditionals="5" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
@@ -117,11 +117,11 @@
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="42" count="0" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
       </file>
-      <file name="device.service.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\device.service.ts">
+      <file name="device.service.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\device.service.ts">
         <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
@@ -132,21 +132,21 @@
         <line num="24" count="2" type="stmt"/>
         <line num="25" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
       </file>
-      <file name="index.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\index.ts">
+      <file name="index.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\index.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
       </file>
-      <file name="request.service.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\request.service.ts">
+      <file name="request.service.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\request.service.ts">
         <metrics statements="15" coveredstatements="15" conditionals="3" coveredconditionals="3" methods="5" coveredmethods="5"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
@@ -159,13 +159,13 @@
         <line num="27" count="2" type="stmt"/>
         <line num="28" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="29" count="1" type="stmt"/>
-        <line num="32" count="2" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
       </file>
-      <file name="request_device.service.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\request_device.service.ts">
+      <file name="request_device.service.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\request_device.service.ts">
         <metrics statements="22" coveredstatements="4" conditionals="7" coveredconditionals="0" methods="5" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
@@ -184,48 +184,48 @@
         <line num="34" count="0" type="stmt"/>
         <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
       </file>
-      <file name="user.service.ts" path="C:\Users\CTecn\Desktop\Alquiler_Equipos\src\services\user.service.ts">
-        <metrics statements="38" coveredstatements="5" conditionals="9" coveredconditionals="0" methods="8" coveredmethods="0"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="26" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="cond" truecount="0" falsecount="1"/>
+      <file name="user.service.ts" path="C:\Universidad\Compunet 3\Alquiler_Equipos\src\services\user.service.ts">
+        <metrics statements="38" coveredstatements="31" conditionals="9" coveredconditionals="5" methods="8" coveredmethods="7"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="26" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="52" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="56" count="0" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="56" count="1" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
-        <line num="69" count="0" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
         <line num="74" count="0" type="stmt"/>
         <line num="75" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="76" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
-        <line num="92" count="2" type="stmt"/>
+        <line num="92" count="3" type="stmt"/>
       </file>
     </package>
   </project>

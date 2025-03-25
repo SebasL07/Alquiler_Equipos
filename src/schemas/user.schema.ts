@@ -5,4 +5,6 @@ export const userSchema = object({
     user_Document: string({required_error: "user_Document is required"}).min(4).max(255),
     email: string({required_error: "email is required"}).email("Not a valid email address"),
     password: string({required_error: "password is required"}).min(8,"Password  must be at least 8 characteres long").max(255),
+    cellphone: number({required_error: "cellphone is required"}).min(10).max(10),
+    adress: string({required_error: "adress is required"}).min(3).max(255),
 });

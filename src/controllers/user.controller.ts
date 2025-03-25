@@ -66,7 +66,6 @@ class UserController {
             res.status(200).json(user);
         } catch (error: any) {
             if(error instanceof AuthException) {
-                console.log(error);
                 res.status(401).json({ msg: error.message });
                 return;
             };
