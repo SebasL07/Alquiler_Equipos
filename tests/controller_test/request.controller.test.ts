@@ -1,8 +1,7 @@
 import request from 'supertest';
 import { app } from '../../src/app'; 
-import bcrypt from 'bcrypt';
 import { requestService, userService } from '../../src/services';
-import User from '../../src/models/user.model';
+
 
 jest.mock('../../src/services'); // Mockeamos el servicio
 
@@ -140,12 +139,13 @@ describe('RequestController', () => {
         expect(response.body).toEqual({ msg: 'Request with id 999 not found' });
     });
 
-   /** test('DELETE /api/requests - debería eliminar todas las solicitudes', async () => {
+    test('DELETE /api/requests - debería eliminar todas las solicitudes', async () => {
         (requestService.deleteAllRequest as jest.Mock).mockResolvedValue(undefined);
 
         const response = await request(app).delete('/api/requests');
 
         expect(response.status).toBe(200);
         expect(response.body).toEqual({ msg: 'All request deleted' });
-    }); */
+    });
+
 });
