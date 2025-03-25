@@ -28,5 +28,9 @@ class RequestService {
         if (!request) throw new Error(`Request with id ${id} not found`);
         await request.destroy();
     }
+
+    public async deleteAllRequest() {
+        await Request.destroy({ where: {}, truncate: true });
+    }
 }
 export const requestService = new RequestService();

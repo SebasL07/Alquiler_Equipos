@@ -57,6 +57,15 @@ class RequestController {
             res.status(404).json({ msg: error.message });
         }
     }
+
+    public async deleteAllRequest(req: Request, res: Response) {
+            try {
+                await requestService.deleteAllRequest();
+                res.status(200).json({ msg: 'All request deleted' });
+            } catch (error: any) {
+                res.status(500).json({ msg: 'Server error' });
+            }
+        }
 }
 
 export const requestController = new RequestController();
