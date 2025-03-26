@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "801b383d-d3df-4f4d-9458-0e382c688616",
+		"name": "Request_device Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38731091",
+		"_collection_link": "https://alquilerteam.postman.co/workspace/Alquiler_team-Workspace~d92cba0d-55ce-4f23-86eb-4cfa18b74ccc/collection/38731091-801b383d-d3df-4f4d-9458-0e382c688616?action=share&source=collection_link&creator=38731091"
+	},
+	"item": [
+		{
+			"name": "GetAllRequest_device",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}request_devices",
+					"host": [
+						"{{url}}request_devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRequest_deviceById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}request_devices/1",
+					"host": [
+						"{{url}}request_devices"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostRequest_device",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"request_id\": 1,\r\n    \"deviceName\": \"Device 2\",\r\n    \"quantity\": 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}request_devices/",
+					"host": [
+						"{{url}}request_devices"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutRequest_device",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"request_id\": 1,\r\n    \"deviceName\": \"Device 2\",\r\n    \"quantity\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}request_devices/3",
+					"host": [
+						"{{url}}request_devices"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRequest_deviceById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}request_devices/3",
+					"host": [
+						"{{url}}request_devices"
+					],
+					"path": [
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllRequest_devics",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}request_devices",
+					"host": [
+						"{{url}}request_devices"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api/",
+			"type": "default"
+		}
+	]
+}

@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "473826b2-1c30-46bd-bd7c-76e8f608d0a5",
+		"name": "Request Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38731091",
+		"_collection_link": "https://alquilerteam.postman.co/workspace/Alquiler_team-Workspace~d92cba0d-55ce-4f23-86eb-4cfa18b74ccc/collection/38731091-473826b2-1c30-46bd-bd7c-76e8f608d0a5?action=share&source=collection_link&creator=38731091"
+	},
+	"item": [
+		{
+			"name": "GetAllRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}devices/",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRequestById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}devices/1",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"112233445\", \r\n    \"date_Request\": \"2025-01-01\", // Fecha válida\r\n    \"status\": \"Active\",\r\n    \"admin_comment\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}requests/1",
+					"host": [
+						"{{url}}requests"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"112233445\", \r\n    \"date_Request\": \"2025-01-01\", // Fecha válida\r\n    \"status\": \"Active\",\r\n    \"admin_comment\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}requests",
+					"host": [
+						"{{url}}requests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRequestById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"112233445\", \r\n    \"date_Request\": \"2025-01-01\", // Fecha válida\r\n    \"status\": \"Active\",\r\n    \"admin_comment\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}requests/1",
+					"host": [
+						"{{url}}requests"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllRequest",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"112233445\", \r\n    \"date_Request\": \"2025-01-01\", // Fecha válida\r\n    \"status\": \"Active\",\r\n    \"admin_comment\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}requests",
+					"host": [
+						"{{url}}requests"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api/",
+			"type": "default"
+		}
+	]
+}

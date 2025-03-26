@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "aec966b9-39e7-4883-8fd7-4a2d76ac5655",
+		"name": "Device Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38731091",
+		"_collection_link": "https://alquilerteam.postman.co/workspace/Alquiler_team-Workspace~d92cba0d-55ce-4f23-86eb-4cfa18b74ccc/collection/38731091-aec966b9-39e7-4883-8fd7-4a2d76ac5655?action=share&source=collection_link&creator=38731091"
+	},
+	"item": [
+		{
+			"name": "GetAllDevices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}devices/",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDeviceById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}devices/1",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateDevices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Device 1\",\r\n    \"type\": \"Sensor\",\r\n    \"state\": \"Active\",\r\n    \"description\": \"A sensor device\",\r\n    \"stock\": 5,\r\n    \"image\": \"device1.jpg\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}devices/1",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostDevices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Device 2\",\r\n    \"type\": \"Sensor\",\r\n    \"state\": \"Active\",\r\n    \"description\": \"A sensor device\",\r\n    \"stock\": 5,\r\n    \"image\": \"device1.jpg\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}devices",
+					"host": [
+						"{{url}}devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDevicesBYId",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}devices/1",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllDevices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}devices/",
+					"host": [
+						"{{url}}devices"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "77d78fd7-65d3-4e82-b0f4-331d2af5e015",
+		"name": "Contract Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38731091",
+		"_collection_link": "https://alquilerteam.postman.co/workspace/Alquiler_team-Workspace~d92cba0d-55ce-4f23-86eb-4cfa18b74ccc/collection/38731091-77d78fd7-65d3-4e82-b0f4-331d2af5e015?action=share&source=collection_link&creator=38731091"
+	},
+	"item": [
+		{
+			"name": "GetAllContract",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}contracts",
+					"host": [
+						"{{url}}contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetContractById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}contracts/1",
+					"host": [
+						"{{url}}contracts"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostContract",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"987654321\", \r\n    \"date_Start\": \"2025-01-01\",\r\n    \"date_Finish\": \"2025-12-31\",\r\n    \"monthly_Value\": 1200,\r\n    \"contract\": \"New contract details\",\r\n    \"client_signature\": \"Signed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contracts",
+					"host": [
+						"{{url}}contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateContract",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"987654321\", \r\n    \"date_Start\": \"2025-01-01\",\r\n    \"date_Finish\": \"2025-12-31\",\r\n    \"monthly_Value\": 10,\r\n    \"contract\": \"New contract details\",\r\n    \"client_signature\": \"Signed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contracts/21",
+					"host": [
+						"{{url}}contracts"
+					],
+					"path": [
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteContractById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"987654321\", \r\n    \"date_Start\": \"2025-01-01\",\r\n    \"date_Finish\": \"2025-12-31\",\r\n    \"monthly_Value\": 10,\r\n    \"contract\": \"New contract details\",\r\n    \"client_signature\": \"Signed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contracts/21",
+					"host": [
+						"{{url}}contracts"
+					],
+					"path": [
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllContract",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_Document\": \"987654321\", \r\n    \"date_Start\": \"2025-01-01\",\r\n    \"date_Finish\": \"2025-12-31\",\r\n    \"monthly_Value\": 10,\r\n    \"contract\": \"New contract details\",\r\n    \"client_signature\": \"Signed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contracts",
+					"host": [
+						"{{url}}contracts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api/",
+			"type": "default"
+		}
+	]
+}

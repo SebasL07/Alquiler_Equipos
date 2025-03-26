@@ -1,5 +1,10 @@
 # Alquiler_Equipos
 
+## Estudiantes:
+Samuel Alvarez - A00394750
+
+Sebastian Libreros - A00379813
+
 Este proyecto es una API para gestionar dispositivos contratados en un sistema de alquiler. Se desarrolló utilizando **Node.js**, **Express**, **Sequelize** y **Zod** para la validación de datos.
 
 ## Características principales

@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "5129e34e-cae1-4c5d-ab26-e02eeaaad687",
+		"name": "Contract_device Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38731091",
+		"_collection_link": "https://alquilerteam.postman.co/workspace/Alquiler_team-Workspace~d92cba0d-55ce-4f23-86eb-4cfa18b74ccc/collection/38731091-5129e34e-cae1-4c5d-ab26-e02eeaaad687?action=share&source=collection_link&creator=38731091"
+	},
+	"item": [
+		{
+			"name": "GetAllContractDevices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}contract_devices",
+					"host": [
+						"{{url}}contract_devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetContractDevicesById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}contract_devices/1",
+					"host": [
+						"{{url}}contract_devices"
+					],
+					"path": [
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostContractDevice",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_contract\": 1,\r\n    \"deviceName\": \"Device 2\",\r\n    \"rented_quantity\": 2,\r\n    \"total_price\": 150.75,\r\n    \"delivery_status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contract_devices",
+					"host": [
+						"{{url}}contract_devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateContractDevice",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_contract\": 1,\r\n    \"deviceName\": \"Device 2\",\r\n    \"rented_quantity\": 2,\r\n    \"total_price\": 150.20,\r\n    \"delivery_status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contract_devices/2",
+					"host": [
+						"{{url}}contract_devices"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteContractDeviceById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_contract\": 1,\r\n    \"deviceName\": \"Device 2\",\r\n    \"rented_quantity\": 2,\r\n    \"total_price\": 150.20,\r\n    \"delivery_status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contract_devices/2",
+					"host": [
+						"{{url}}contract_devices"
+					],
+					"path": [
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllContractDevices",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id_contract\": 1,\r\n    \"deviceName\": \"Device 2\",\r\n    \"rented_quantity\": 2,\r\n    \"total_price\": 150.20,\r\n    \"delivery_status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}contract_devices",
+					"host": [
+						"{{url}}contract_devices"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8000/api/",
+			"type": "default"
+		}
+	]
+}
