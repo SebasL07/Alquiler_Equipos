@@ -8,7 +8,8 @@ export const requestRouter = Router();
 requestRouter.get('/', requestController.getRequests);
 requestRouter.get('/:id', requestController.getRequest);
 requestRouter.post('/', validateSchema(requestSchema), requestController.postRequest);
-requestRouter.put('/:id', validateSchema(requestSchema), requestController.putRequest);
+requestRouter.put('/:id', requestController.putRequest);
 requestRouter.delete('/:id', requestController.deleteRequest);
+requestRouter.delete('/', requestController.deleteAllRequest);
 
 

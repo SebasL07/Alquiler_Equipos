@@ -8,8 +8,9 @@ export const requestDeviceRouter = Router();
 requestDeviceRouter.get('/', requestDeviceController.getRequestDevices);
 requestDeviceRouter.get('/:id', requestDeviceController.getRequestDevice);
 requestDeviceRouter.post('/', validateSchema(requestDeviceSchema), requestDeviceController.postRequestDevice);
-requestDeviceRouter.put('/:id', validateSchema(requestDeviceSchema), requestDeviceController.putRequestDevice);
+requestDeviceRouter.put('/:id', requestDeviceController.putRequestDevice);
 requestDeviceRouter.delete('/:id', requestDeviceController.deleteRequestDevice);
+requestDeviceRouter.delete('/', requestDeviceController.deleteAllRequestDevice);
 
 
 

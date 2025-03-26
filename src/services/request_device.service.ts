@@ -35,6 +35,11 @@ class RequestDeviceService {
         if (!requestDevice) throw new Error(`RequestDevice with id ${id} not found`);
         await requestDevice.destroy();
     }
+
+    public async deleteAllRequest() {
+        await RequestDevice.destroy({ where: {}, truncate: true });
+    }
+
 }
 
 export const requestDeviceService = new RequestDeviceService();
