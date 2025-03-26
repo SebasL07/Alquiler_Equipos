@@ -11,7 +11,7 @@ class DeviceController {
                 res.json(devices);
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 
@@ -25,7 +25,7 @@ class DeviceController {
                 res.status(404).json({ msg: `Device with id ${id} not found` });
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 
@@ -62,7 +62,7 @@ class DeviceController {
             await deviceService.deleteAllDevices();
             res.status(200).json({ msg: 'All devices deleted' });
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
     
