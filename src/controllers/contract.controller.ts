@@ -11,7 +11,7 @@ class ContractController {
                 res.json(contracts);
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error', error: error.message });
+            res.status(500).json({ msg: error.message, error: error.message });
         }
     }
 
@@ -25,7 +25,7 @@ class ContractController {
                 res.status(404).json({ msg: `Contract with id ${id} not found` });
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error', error: error.message });
+            res.status(500).json({ msg: error.message, error: error.message });
         }
     }
 
@@ -63,7 +63,7 @@ class ContractController {
                     await contractService.deleteAllContract();
                     res.status(200).json({ msg: 'All contracts deleted' });
                 } catch (error: any) {
-                    res.status(500).json({ msg: 'Server error' });
+                    res.status(500).json({ msg: error.message });
                 }
             }
 }

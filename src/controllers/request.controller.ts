@@ -11,7 +11,7 @@ class RequestController {
                 res.json(requests);
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 
@@ -25,7 +25,7 @@ class RequestController {
                 res.status(404).json({ msg: `Request with id ${id} not found` });
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 
@@ -63,7 +63,7 @@ class RequestController {
                 await requestService.deleteAllRequest();
                 res.status(200).json({ msg: 'All request deleted' });
             } catch (error: any) {
-                res.status(500).json({ msg: 'Server error' });
+                res.status(500).json({ msg: error.message });
             }
         }
 }

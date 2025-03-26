@@ -69,7 +69,7 @@ class UserController {
                 res.status(401).json({ msg: error.message });
                 return;
             };
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 }

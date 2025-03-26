@@ -25,7 +25,7 @@ class RequestDeviceController {
                 res.status(404).json({ msg: `Request device with id ${id} not found` });
             }
         } catch (error: any) {
-            res.status(500).json({ msg: 'Server error' });
+            res.status(500).json({ msg: error.message });
         }
     }
 
@@ -62,7 +62,7 @@ class RequestDeviceController {
                     await requestDeviceService.deleteAllRequest();
                     res.status(200).json({ msg: 'All request deleted' });
                 } catch (error: any) {
-                    res.status(500).json({ msg: 'Server error' });
+                    res.status(500).json({ msg: error.message });
                 }
             }
 }

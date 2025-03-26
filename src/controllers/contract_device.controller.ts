@@ -7,7 +7,7 @@ class ContractDeviceController {
             const contractDevices = await contractDeviceService.getAllContractDevices();
             res.json(contractDevices);
         } catch (error: any) {
-            res.status(500).json({ msg: "Server error", error: error.message });
+            res.status(500).json({ msg: error.message, error: error.message });
         }
     }
 
@@ -56,7 +56,7 @@ class ContractDeviceController {
                     await contractDeviceService.deleteAllContractDevice();
                     res.status(200).json({ msg: 'All contractDevices deleted' });
                 } catch (error: any) {
-                    res.status(500).json({ msg: 'Server error' });
+                    res.status(500).json({ msg: error.message });
                 }
             }
 }
