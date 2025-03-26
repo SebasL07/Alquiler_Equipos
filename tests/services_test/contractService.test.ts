@@ -76,7 +76,7 @@ describe('ContractService', () => {
     (Contract.findByPk as jest.Mock).mockResolvedValue(null);
 
     await expect(contractService.updateContract(99, { date_Finish: '2024-12-31' }))
-      .rejects.toThrow('Request with id 99 not found');
+      .rejects.toThrow('contract with id 99 not found');
   });
 
   test('deleteContract debe eliminar un contrato existente', async () => {
@@ -91,6 +91,6 @@ describe('ContractService', () => {
     (Contract.findByPk as jest.Mock).mockResolvedValue(null);
 
     await expect(contractService.deleteContract(99))
-      .rejects.toThrow('Request with id 99 not found');
+      .rejects.toThrow('contract with id 99 not found');
   });
 });

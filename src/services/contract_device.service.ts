@@ -42,7 +42,7 @@ class ContractDeviceService {
         await contractDevice.destroy();
     }
 
-    public async deleteAllRequest() {
+    public async deleteAllContractDevice() {
         await ContractDevice.destroy({ where: {}, truncate: true });
     }
 

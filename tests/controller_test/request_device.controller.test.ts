@@ -1,176 +1,132 @@
-import request from 'supertest';
-import { app } from '../../src/app';
-import { requestDeviceService, requestService, deviceService } from '../../src/services';
-import Request from '../../src/models/request.model';
-import Device from '../../src/models/device.model';
-jest.mock('../../src/services'); // Mockeamos el servicio
+import request from "supertest";
+import {app} from "../../src/app"; // Asegúrate de importar la instancia de Express
+import { requestDeviceService } from "../../src/services";
+import RequestDevice from "../../src/models/request_device.model";
 
- 
+// Simulamos las funciones del servicio
+jest.mock("../../src/services");
 
-let createdRequest: any;
-let createdDevice: any;
-beforeAll(async () => {
- 
-
-    // Crear un request antes de las pruebas
-    createdRequest = await Request.create({
-        user_Document: "987654321", 
-        date_Request: new Date().toISOString(),
-        status: "Pending",
-        admin_comment: " "
-    });
-
-    // Crear un device antes de las pruebas
-    createdDevice = await Device.create({
-        name: "Laptop Dell XPS 15",
-        type: "Laptop",
-        state: "New",
-        description: "High-performance laptop",
-        stock: 5,
-        image: "https://example.com/images/laptop-dell.jpg"
-    });
-});
-
-
-
-
-describe('RequestDeviceController', () => {
-    const mockRequestDevice = {
-        request_id: 5,
-        deviceName: "Laptop Dell XPS 15",
-        quantity: 2,
-    };
-
-    beforeEach(async () => {
+describe("RequestDeviceController", () => {
+    beforeEach(() => {
         jest.clearAllMocks();
-        (requestDeviceService.deleteRequestDevice as jest.Mock).mockClear();
     });
 
-    test('GET /api/request_devices - debería devolver 404 si no hay dispositivos en solicitudes', async () => {
-        (requestDeviceService.getAllRequestDevices as jest.Mock).mockResolvedValue([]);
-
-        const response = await request(app).get('/api/request_devices');
-
-        expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'No request devices found' });
-    });
-
-    
-
-    test('GET /api/request_devices/:id - debería devolver 404 si el dispositivo en solicitud no existe', async () => {
-        (requestDeviceService.getRequestDeviceById as jest.Mock).mockResolvedValue(null);
-
-        const response = await request(app).get(`/api/request_devices/999`);
-
-        expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'Request device with id 999 not found' });
-    });
-
-    test('POST /api/request_devices - debería crear un nuevo dispositivo en solicitud', async () => {
-        (requestDeviceService.createRequestDevice as jest.Mock).mockResolvedValue(mockRequestDevice);
-
-        const response = await request(app)
-            .post('/api/request_devices')
-            .send({
-                request_id: 1,
-                deviceName: "Laptop",
-                quantity: 2
-            });
-
-        expect(response.status).toBe(201);
-        expect(response.body).toEqual({ msg: 'Request device created', requestDevice: mockRequestDevice });
-    });
-
-    test('GET /api/request_devices - debería devolver una lista de dispositivos en solicitudes', async () => {
-        (requestDeviceService.getAllRequestDevices as jest.Mock).mockResolvedValue([mockRequestDevice]);
-
-        const response = await request(app).get('/api/request_devices');
-
-        expect(response.status).toBe(200);
-        expect(response.body).toEqual([mockRequestDevice]);
-    });
-
-    test('GET /api/request_devices/:id - debería devolver un dispositivo en solicitud por ID', async () => {
-        (requestDeviceService.getRequestDeviceById as jest.Mock).mockResolvedValue(mockRequestDevice);
-
-        const response = await request(app).get(`/api/request_devices/1`);
-
-        expect(response.status).toBe(200);
-        expect(response.body).toEqual(mockRequestDevice);
-    });
-
-    test('POST /api/request_devices - debería devolver 400 si falta un campo', async () => {
-        (requestDeviceService.createRequestDevice as jest.Mock).mockRejectedValue(new Error('Request ID is required'));
-    
-        const response = await request(app)
-            .post('/api/request_devices')
-            .send({
-                deviceName: "Laptop",
-                quantity: 2
-            });
-    
-        expect(response.status).toBe(400);
-        expect(response.body).toMatchObject({
-            msg: expect.arrayContaining([
-                expect.objectContaining({
-                    message: "Request id is required",
-                    path: expect.arrayContaining(["request_id"]),
-                }),
-            ]),
+    describe("GET /api/request_devices", () => {
+        it("debería devolver 404 si no hay dispositivos en solicitudes", async () => {
+            (requestDeviceService.getAllRequestDevices as jest.Mock).mockResolvedValue([]);
+            const response = await request(app).get("/api/request_devices");
+            expect(response.status).toBe(404);
+            expect(response.body).toEqual({ msg: "No request devices found" });
         });
-    });
-    
 
-    test('PUT /api/request_devices/:id - debería actualizar un dispositivo en solicitud', async () => {
-        (requestDeviceService.updateRequestDevice as jest.Mock).mockResolvedValue(mockRequestDevice);
+        it("debería devolver la lista de request devices si existen", async () => {
+            const mockDevices = [{ id: 1, request_id: 1, deviceName: "Laptop", quantity: 2 }];
+            (requestDeviceService.getAllRequestDevices as jest.Mock).mockResolvedValue(mockDevices);
 
-        const response = await request(app)
-            .put(`/api/request_devices/1`)
-            .send({ request_id: 3,
-                    deviceName: "Laptop Dell XPS 15",
-                    quantity: 7  });
-
-        expect(response.status).toBe(200);
-        expect(response.body).toEqual({ msg: 'Request device updated' });
-    });
-
-    test('PUT /api/request_devices/:id - debería devolver 400 si el dispositivo en solicitud no existe', async () => {
-        (requestDeviceService.updateRequestDevice as jest.Mock).mockRejectedValue(new Error('RequestDevice with id 999 not found'));
-
-        const response = await request(app)
-            .put('/api/request_devices/999')
-            .send({ quantity: 3 });
-        
-
-        expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'RequestDevice with id 999 not found' });
-    });
-
-    test('DELETE /api/request_devices/:id - debería eliminar un dispositivo en solicitud', async () => {
-        (requestDeviceService.deleteRequestDevice as jest.Mock).mockResolvedValue(undefined);
-
-        const response = await request(app).delete(`/api/request_devices/1`);
-
-        expect(response.status).toBe(200);
-        expect(response.body).toEqual({ msg: 'Request device deleted' });
-    });
-
-    test('DELETE /api/request_devices/:id - debería devolver 400 si el dispositivo en solicitud no existe', async () => {
-        (requestDeviceService.deleteRequestDevice as jest.Mock).mockRejectedValue(new Error('RequestDevice with id 999 not found'));
-
-        const response = await request(app).delete('/api/request_devices/999');
-
-        expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'RequestDevice with id 999 not found' });
-    });
-
-    test('DELETE /api/requests - debería eliminar todas las solicitudes', async () => {
-            (requestDeviceService.deleteAllRequest as jest.Mock).mockResolvedValue(undefined);
-            const response = await request(app).delete('/api/request_devices');
-            const response2 = await request(app).delete('/api/devices')
-            const response3 = await request(app).delete('/api/requests')
+            const response = await request(app).get("/api/request_devices");
             expect(response.status).toBe(200);
-            expect(response.body).toEqual({ msg: 'All request deleted' });
+            expect(response.body).toEqual(mockDevices);
         });
-    
+    });
+
+    describe("GET /api/request_devices/:id", () => {
+        it("debería devolver 404 si el dispositivo no existe", async () => {
+            (requestDeviceService.getRequestDeviceById as jest.Mock).mockResolvedValue(null);
+            const response = await request(app).get("/api/request_devices/99");
+            expect(response.status).toBe(404);
+            expect(response.body).toEqual({ msg: "Request device with id 99 not found" });
+        });
+
+        it("debería devolver el request device si existe", async () => {
+            const mockDevice = { id: 1, request_id: 1, deviceName: "Laptop", quantity: 2 };
+            (requestDeviceService.getRequestDeviceById as jest.Mock).mockResolvedValue(mockDevice);
+
+            const response = await request(app).get("/api/request_devices/1");
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual(mockDevice);
+        });
+    });
+
+    describe("POST /api/request_devices", () => {
+        it("debería crear un request device si los datos son correctos", async () => {
+            const newDevice = { request_id: 1, deviceName: "Tablet", quantity: 3 };
+            (requestDeviceService.createRequestDevice as jest.Mock).mockResolvedValue(newDevice);
+
+            const response = await request(app).post("/api/request_devices").send(newDevice);
+            expect(response.status).toBe(201);
+            expect(response.body).toEqual({ msg: "Request device created", requestDevice: newDevice });
+        });
+
+        it("debería devolver error si falta algún campo", async () => {
+            const newDevice = { deviceName: "Tablet", quantity: 3 };
+            (requestDeviceService.createRequestDevice as jest.Mock).mockRejectedValue(new Error("Request id is required"));
+
+            const response = await request(app).post("/api/request_devices").send(newDevice);
+            expect(response.status).toBe(400);
+            expect(response.body).toEqual({
+                msg: expect.arrayContaining([
+                  expect.objectContaining({
+                    code: "invalid_type",
+                    message: "Request id is required",
+                    path: ["request_id"],
+                  }),
+                ]),
+              });
+        });
+    });
+
+    describe("PUT /api/request_devices/:id", () => {
+        it("debería actualizar un request device si existe", async () => {
+            const updatedDevice = { request_id: 1, deviceName: "Monitor", quantity: 5 };
+            (requestDeviceService.updateRequestDevice as jest.Mock).mockResolvedValue(updatedDevice);
+
+            const response = await request(app).put("/api/request_devices/1").send(updatedDevice);
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({ msg: "Request device updated" });
+        });
+
+        it("debería devolver error si el request device no existe", async () => {
+            (requestDeviceService.updateRequestDevice as jest.Mock).mockRejectedValue(new Error("RequestDevice with id 99 not found"));
+
+            const response = await request(app).put("/api/request_devices/99").send({ quantity: 10 });
+            expect(response.status).toBe(404);
+            expect(response.body).toEqual({ msg: "RequestDevice with id 99 not found" });
+        });
+    });
+
+    describe("DELETE /api/request_devices/:id", () => {
+        it("debería eliminar un request device si existe", async () => {
+            (requestDeviceService.deleteRequestDevice as jest.Mock).mockResolvedValue(true);
+
+            const response = await request(app).delete("/api/request_devices/1");
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({ msg: "Request device deleted" });
+        });
+
+        it("debería devolver error si el request device no existe", async () => {
+            (requestDeviceService.deleteRequestDevice as jest.Mock).mockRejectedValue(new Error("RequestDevice with id 99 not found"));
+
+            const response = await request(app).delete("/api/request_devices/99");
+            expect(response.status).toBe(404);
+            expect(response.body).toEqual({ msg: "RequestDevice with id 99 not found" });
+        });
+    });
+
+    describe("DELETE /api/request_devices", () => {
+        it("debería eliminar todos los request devices", async () => {
+            (requestDeviceService.deleteAllRequest as jest.Mock).mockResolvedValue(true);
+
+            const response = await request(app).delete("/api/request_devices");
+            expect(response.status).toBe(200);
+            expect(response.body).toEqual({ msg: "All request deleted" });
+        });
+
+        it("debería devolver error si hay un problema en el servidor", async () => {
+            (requestDeviceService.deleteAllRequest as jest.Mock).mockRejectedValue(new Error("Server error"));
+
+            const response = await request(app).delete("/api/request_devices");
+            expect(response.status).toBe(500);
+            expect(response.body).toEqual({ msg: "Server error" });
+        });
+    });
 });

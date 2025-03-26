@@ -60,8 +60,8 @@ class ContractController {
 
     public async deleteAllContract(req: Request, res: Response) {
                 try {
-                    await contractService.deleteAllRequest();
-                    res.status(200).json({ msg: 'All request deleted' });
+                    await contractService.deleteAllContract();
+                    res.status(200).json({ msg: 'All contracts deleted' });
                 } catch (error: any) {
                     res.status(500).json({ msg: 'Server error' });
                 }

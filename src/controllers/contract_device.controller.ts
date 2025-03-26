@@ -53,8 +53,8 @@ class ContractDeviceController {
 
     public async deleteAllContractDevice(req: Request, res: Response) {
                 try {
-                    await contractDeviceService.deleteAllRequest();
-                    res.status(200).json({ msg: 'All request deleted' });
+                    await contractDeviceService.deleteAllContractDevice();
+                    res.status(200).json({ msg: 'All contractDevices deleted' });
                 } catch (error: any) {
                     res.status(500).json({ msg: 'Server error' });
                 }

@@ -24,17 +24,17 @@ class ContractService {
 
     public async updateContract(id: number, contractData: any) {
         const contract = await Contract.findByPk(id);
-        if (!contract) throw new Error(`Request with id ${id} not found`);
+        if (!contract) throw new Error(`contract with id ${id} not found`);
         await contract.update(contractData);
         return contract;
     }
 
     public async deleteContract(id: number) {
         const contract = await Contract.findByPk(id);
-        if (!contract) throw new Error(`Request with id ${id} not found`);
+        if (!contract) throw new Error(`contract with id ${id} not found`);
         await contract.destroy();
     }
-    public async deleteAllRequest() {
+    public async deleteAllContract() {
         await Contract.destroy({ where: {}, truncate: true });
     }
 
