@@ -7,7 +7,6 @@ import jwt from 'jsonwebtoken';
 class UserService {
     public async getAllUsers() {
         const users = await User.findAll();
-        console.log(users);
         return users;
     }
 
@@ -86,6 +85,7 @@ class UserService {
             throw error;
         }
     }
+    
 
 }
 

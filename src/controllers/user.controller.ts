@@ -10,7 +10,7 @@ class UserController {
             if (users.length === 0) {
                 res.status(404).json({ msg: 'No users found' });
             } else {
-                res.json(users);
+                res.status(200).json(users);
             }
         } catch (error: any) {
             res.status(500).json({ msg: error.message });
@@ -34,7 +34,7 @@ class UserController {
     public async postUsers(req: Request, res: Response) {
         try {
             await userService.createUser(req.body);
-            res.status(200).json({ msg: 'User created' });
+            res.status(201).json({ msg: 'User created' });
         } catch (error: any) {
             res.status(400).json({ msg: error.message });
         }
@@ -54,7 +54,7 @@ class UserController {
         const { email } = req.params;
         try {
             await userService.deleteUserByEmail(email);
-            res.status(200).json({ msg: 'User deleted' });
+            res.status(204).json({ msg: 'User deleted' });
         } catch (error: any) {
             res.status(404).json({ msg: error.message });
         }
