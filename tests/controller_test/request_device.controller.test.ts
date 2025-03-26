@@ -167,10 +167,10 @@ describe('RequestDeviceController', () => {
     test('DELETE /api/requests - debería eliminar todas las solicitudes', async () => {
             (requestDeviceService.deleteAllRequest as jest.Mock).mockResolvedValue(undefined);
             const response = await request(app).delete('/api/request_devices');
-            const response2 = await request(app).delete('/api/devices')
-            const response3 = await request(app).delete('/api/requests')
+            
             expect(response.status).toBe(200);
             expect(response.body).toEqual({ msg: 'All request deleted' });
         });
-    
+    request(app).delete('/api/devices');
+    request(app).delete('/api/requests');
 });

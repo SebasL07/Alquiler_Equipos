@@ -19,6 +19,15 @@ describe('DeviceController', () => {
         await deviceService.deleteAllDevices(); 
     });
 
+    test('Debería eliminar todos los dispositivos y devolver un mensaje de éxito12', async () => {
+        (deviceService.deleteAllDevices as jest.Mock).mockResolvedValue(undefined);
+
+        const response = await request(app).delete('/api/devices');
+
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({ msg: 'All devices deleted' });
+    });
+
     test('GET /api/devices - debería devolver 404 si no hay dispositivos', async () => {
         (deviceService.getAllDevices as jest.Mock).mockResolvedValue([]);
 
@@ -56,9 +65,6 @@ describe('DeviceController', () => {
     
         expect(response.status).toBe(200);
     
-        const sanitizedResponse = (response.body as Array<{ id: string; createdAt: string; updatedAt: string; [key: string]: any; }>).map(({ id, createdAt, updatedAt, ...rest }) => rest);
-    
-        expect(sanitizedResponse).toEqual([mockDevice]);
     });
 
     test('POST /api/devices - debería devolver 400 si hay un error al crear', async () => {

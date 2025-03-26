@@ -21,6 +21,15 @@ describe('RequestController', () => {
         await requestService.deleteAllRequest();
     });
 
+    test('DELETE /api/requests - debería eliminar todas las solicitudes123', async () => {
+        (requestService.deleteAllRequest as jest.Mock).mockResolvedValue(undefined);
+
+        const response = await request(app).delete('/api/requests');
+
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({ msg: 'All request deleted' });
+    });
+
     test('GET /api/requests - debería devolver 404 si no hay solicitudes', async () => {
         (requestService.getAllRequests as jest.Mock).mockResolvedValue([]);
 
