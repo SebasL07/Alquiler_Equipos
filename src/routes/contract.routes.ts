@@ -8,7 +8,8 @@ export const contractRouter = Router();
 contractRouter.get('/', contractController.getContracts);
 contractRouter.get('/:id', contractController.getContract);
 contractRouter.post('/', validateSchema(contractSchema.innerType()), contractController.postContract);
-contractRouter.put('/:id', validateSchema(contractSchema.innerType()), contractController.putContract);
+contractRouter.put('/:id',  contractController.putContract);
 contractRouter.delete('/:id', contractController.deleteContract);
+contractRouter.delete('/', contractController.deleteAllContract);
 
 

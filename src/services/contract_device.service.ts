@@ -41,6 +41,11 @@ class ContractDeviceService {
 
         await contractDevice.destroy();
     }
+
+    public async deleteAllRequest() {
+        await ContractDevice.destroy({ where: {}, truncate: true });
+    }
+
 }
 
 export const contractDeviceService = new ContractDeviceService();

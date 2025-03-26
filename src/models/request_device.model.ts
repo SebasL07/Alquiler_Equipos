@@ -22,8 +22,7 @@ const RequestDevice = db.define('request_device', {
     },
     quantity: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        defaultValue: 1
+        allowNull: false
     }
     
 });

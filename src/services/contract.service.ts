@@ -34,5 +34,9 @@ class ContractService {
         if (!contract) throw new Error(`Request with id ${id} not found`);
         await contract.destroy();
     }
+    public async deleteAllRequest() {
+        await Contract.destroy({ where: {}, truncate: true });
+    }
+
 }
 export const contractService = new ContractService();

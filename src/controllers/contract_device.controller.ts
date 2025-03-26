@@ -49,6 +49,16 @@ class ContractDeviceController {
             res.status(404).json({ msg: error.message });
         }
     }
+
+
+    public async deleteAllContractDevice(req: Request, res: Response) {
+                try {
+                    await contractDeviceService.deleteAllRequest();
+                    res.status(200).json({ msg: 'All request deleted' });
+                } catch (error: any) {
+                    res.status(500).json({ msg: 'Server error' });
+                }
+            }
 }
 
 export const contractDeviceController = new ContractDeviceController();
