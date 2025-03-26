@@ -11,7 +11,7 @@ describe('DeviceController', () => {
         state: "Active",
         description: "A sensor device",
         stock: 10,
-        image: "device1.jpg" ,
+        image: "device1.jpg" 
     };
 
     beforeEach(async () => {

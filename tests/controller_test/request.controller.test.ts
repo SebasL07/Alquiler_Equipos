@@ -45,7 +45,7 @@ describe('RequestController', () => {
         .post('/api/requests')
         .send({
             user_Document: "987654321", 
-            date_Request: new Date().toISOString(), // Fecha válida
+            date_Request: "2025-01-01", // Fecha válida
             status: "Pending",
             admin_comment: null
         })
