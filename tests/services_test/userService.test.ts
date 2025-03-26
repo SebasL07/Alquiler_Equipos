@@ -124,7 +124,7 @@ describe("UserService", () => {
         };
 
         (User.findOne as jest.Mock).mockResolvedValue(mockUser);
-        (mockUser.get as jest.Mock).mockReturnValue('12345678');
+        //(mockUser.get as jest.Mock).mockReturnValue('12345678');
 
         const result = await userService.logIn(userLogin);
         expect(result).toHaveProperty('token');
