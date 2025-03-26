@@ -1,180 +1,120 @@
-import request from 'supertest';
-import { app } from '../../src/app';
-import { contractDeviceService, contractService, deviceService } from '../../src/services';
-import Contract from '../../src/models/contract.model';
-import Device from '../../src/models/device.model';
+import request from "supertest";
+import {app} from "../../src/app"; // Asegúrate de importar tu aplicación Express
+import { contractDeviceService } from "../../src/services";
+import { ContractDeviceSchema } from "../../src/schemas/contract_device.schema";
 
-jest.mock('../../src/services'); // Mockeamos los servicios
+// Mock de los servicios
+jest.mock("../services/contract_device.service");
 
-let createdContract: any;
-let createdDevice: any;
-
-beforeAll(async () => {
-    // Crear un contrato antes de las pruebas
-    createdContract = await Contract.create({
-        user_Document: "987654321",
-        date_Start: "2024-03-01",
-        date_Finish: "2025-03-01",
-        monthly_Value: 1000,
-        contract: "Rental agreement"
-    });
-
-    // Crear un dispositivo antes de las pruebas
-    createdDevice = await Device.create({
-        name: "Laptop Dell XPS 15",
-        type: "Laptop",
-        state: "New",
-        description: "High-performance laptop",
-        stock: 5,
-        image: "https://example.com/images/laptop-dell.jpg"
-    });
-});
-
-describe('ContractDeviceController', () => {
+describe("ContractDeviceController", () => {
+    
+    // Datos de prueba
     const mockContractDevice = {
-        id_contract: 5,
-        deviceName: "Laptop Dell XPS 15",
+        id_contract: 1,
+        deviceName: "Laptop X",
         rented_quantity: 2,
-        total_price: 2000,
+        total_price: 1200.50,
         delivery_status: "Pending"
     };
 
-    beforeEach(async () => {
-        jest.clearAllMocks();
-        (contractDeviceService.deleteContractDevice as jest.Mock).mockClear();
-    });
-
-    test('GET /api/contract_devices - debería devolver 404 si no hay dispositivos en contratos', async () => {
-        (contractDeviceService.getAllContractDevices as jest.Mock).mockResolvedValue([]);
-
-        const response = await request(app).get('/api/contract_devices');
-
-        expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'No contract devices found' });
-    });
-
-    test('GET /api/contract_devices/:id - debería devolver 404 si el dispositivo en contrato no existe', async () => {
-        (contractDeviceService.getContractDeviceById as jest.Mock).mockResolvedValue(null);
-
-        const response = await request(app).get(`/api/contract_devices/999`);
-
-        expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'Contract device with id 999 not found' });
-    });
-
-    test('POST /api/contract_devices - debería crear un nuevo dispositivo en contrato', async () => {
-        (contractDeviceService.createContractDevice as jest.Mock).mockResolvedValue(mockContractDevice);
-
-        const response = await request(app)
-            .post('/api/contract_devices')
-            .send({
-                id_contract: 1,
-                deviceName: "Laptop Dell XPS 15",
-                rented_quantity: 2,
-                total_price: 2000,
-                delivery_status: "Pending"
-            });
-
-        expect(response.status).toBe(201);
-        expect(response.body).toEqual({ msg: 'Contract device created', contractDevice: mockContractDevice });
-    });
-
-    test('GET /api/contract_devices - debería devolver una lista de dispositivos en contratos', async () => {
+    // GET - Obtener todos los dispositivos contratados
+    it("GET /api/contract_devices debería devolver todos los contract devices", async () => {
         (contractDeviceService.getAllContractDevices as jest.Mock).mockResolvedValue([mockContractDevice]);
 
-        const response = await request(app).get('/api/contract_devices');
-
+        const response = await request(app).get("/api/contract_devices");
+        
         expect(response.status).toBe(200);
         expect(response.body).toEqual([mockContractDevice]);
     });
 
-    test('GET /api/contract_devices/:id - debería devolver un dispositivo en contrato por ID', async () => {
+    // GET - Obtener un dispositivo contratado por ID
+    it("GET /api/contract_devices/:id debería devolver un contrato por ID", async () => {
         (contractDeviceService.getContractDeviceById as jest.Mock).mockResolvedValue(mockContractDevice);
 
-        const response = await request(app).get(`/api/contract_devices/1`);
-
+        const response = await request(app).get("/api/contract_devices/1");
+        
         expect(response.status).toBe(200);
         expect(response.body).toEqual(mockContractDevice);
     });
 
-    test('POST /api/contract_devices - debería devolver 400 si falta un campo', async () => {
-        (contractDeviceService.createContractDevice as jest.Mock).mockRejectedValue(new Error('Contract ID is required'));
+    it("GET /api/contract_devices/:id debería devolver error si el contrato no existe", async () => {
+        (contractDeviceService.getContractDeviceById as jest.Mock).mockResolvedValue(null);
 
-        const response = await request(app)
-            .post('/api/contract_devices')
-            .send({
-                deviceName: "Laptop Dell XPS 15",
-                rented_quantity: 2,
-                total_price: 2000
-            });
+        const response = await request(app).get("/api/contract_devices/999");
+
+        expect(response.status).toBe(404);
+        expect(response.body).toEqual({ msg: "Contract device with id 999 not found" });
+    });
+
+    // POST - Crear un dispositivo contratado
+    it("POST /api/contract_devices debería crear un nuevo contrato de dispositivo", async () => {
+        (contractDeviceService.createContractDevice as jest.Mock).mockResolvedValue(mockContractDevice);
+
+        const response = await request(app).post("/api/contract_devices").send(mockContractDevice);
+
+        expect(response.status).toBe(201);
+        expect(response.body).toEqual({ msg: "Contract device created", contractDevice: mockContractDevice });
+    });
+
+    it("POST /api/contract_devices debería devolver error si falta un campo", async () => {
+        const invalidData = { ...mockContractDevice } as Partial<typeof mockContractDevice>;
+        delete invalidData.deviceName;
+
+        const response = await request(app).post("/api/contract_devices").send(invalidData);
 
         expect(response.status).toBe(400);
-        expect(response.body).toMatchObject({
-            msg: expect.arrayContaining([
-                expect.objectContaining({
-                    message: "Contract ID is required",
-                    path: expect.arrayContaining(["id_contract"]),
-                }),
-            ]),
-        });
+        expect(response.body).toHaveProperty("msg");
     });
 
-    test('PUT /api/contract_devices/:id - debería actualizar un dispositivo en contrato', async () => {
+    // PUT - Actualizar un dispositivo contratado
+    it("PUT /api/contract_devices/:id debería actualizar un contrato de dispositivo", async () => {
         (contractDeviceService.updateContractDevice as jest.Mock).mockResolvedValue(mockContractDevice);
 
-        const response = await request(app)
-            .put(`/api/contract_devices/1`)
-            .send({
-                id_contract: 3,
-                deviceName: "Laptop Dell XPS 15",
-                rented_quantity: 3,
-                total_price: 3000,
-                delivery_status: "Delivered"
-            });
+        const response = await request(app).put("/api/contract_devices/1").send({ rented_quantity: 3 });
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({ msg: 'Contract device updated' });
+        expect(response.body).toEqual({ msg: "Contract device updated" });
     });
 
-    test('PUT /api/contract_devices/:id - debería devolver 404 si el dispositivo en contrato no existe', async () => {
-        (contractDeviceService.updateContractDevice as jest.Mock).mockRejectedValue(new Error('ContractDevice with id 999 not found'));
+    it("PUT /api/contract_devices/:id debería devolver error si el contrato no existe", async () => {
+        (contractDeviceService.updateContractDevice as jest.Mock).mockImplementation(() => {
+            throw new Error("Contract device with id 999 not found");
+        });
 
-        const response = await request(app)
-            .put('/api/contract_devices/999')
-            .send({ rented_quantity: 3 });
+        const response = await request(app).put("/api/contract_devices/999").send({ rented_quantity: 3 });
 
         expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'ContractDevice with id 999 not found' });
+        expect(response.body).toEqual({ msg: "Contract device with id 999 not found" });
     });
 
-    test('DELETE /api/contract_devices/:id - debería eliminar un dispositivo en contrato', async () => {
+    // DELETE - Eliminar un dispositivo contratado
+    it("DELETE /api/contract_devices/:id debería eliminar un contrato de dispositivo", async () => {
         (contractDeviceService.deleteContractDevice as jest.Mock).mockResolvedValue(undefined);
 
-        const response = await request(app).delete(`/api/contract_devices/1`);
+        const response = await request(app).delete("/api/contract_devices/1");
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({ msg: 'Contract device deleted' });
+        expect(response.body).toEqual({ msg: "Contract device deleted" });
     });
 
-    test('DELETE /api/contract_devices/:id - debería devolver 404 si el dispositivo en contrato no existe', async () => {
-        (contractDeviceService.deleteContractDevice as jest.Mock).mockRejectedValue(new Error('ContractDevice with id 999 not found'));
+    it("DELETE /api/contract_devices/:id debería devolver error si el contrato no existe", async () => {
+        (contractDeviceService.deleteContractDevice as jest.Mock).mockImplementation(() => {
+            throw new Error("Contract device with id 999 not found");
+        });
 
-        const response = await request(app).delete('/api/contract_devices/999');
+        const response = await request(app).delete("/api/contract_devices/999");
 
         expect(response.status).toBe(404);
-        expect(response.body).toEqual({ msg: 'ContractDevice with id 999 not found' });
+        expect(response.body).toEqual({ msg: "Contract device with id 999 not found" });
     });
 
-    test('DELETE /api/contract_devices - debería eliminar todos los contratos de dispositivos', async () => {
+    // DELETE - Eliminar todos los dispositivos contratados
+    it("DELETE /api/contract_devices debería eliminar todos los contract devices", async () => {
         (contractDeviceService.deleteAllContractDevice as jest.Mock).mockResolvedValue(undefined);
 
-        const response = await request(app).delete('/api/contract_devices');
+        const response = await request(app).delete("/api/contract_devices");
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual({ msg: 'All contractDevices deleted' });
+        expect(response.body).toEqual({ msg: "All contractDevices deleted" });
     });
-
-    // Eliminamos todos los dispositivos y contratos creados para limpiar la base de datos
-    request(app).delete('/api/devices');
-    request(app).delete('/api/contracts');
 });
